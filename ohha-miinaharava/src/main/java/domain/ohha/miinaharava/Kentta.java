@@ -1,20 +1,62 @@
-
 package domain.ohha.miinaharava;
 
+import com.sun.org.apache.bcel.internal.generic.AALOAD;
+import java.util.Random;
 
 public class Kentta {
+
     private Ruutu[][] ruudut;
     private int miinojenMaara;
-    
-    public Kentta(int leveys, int korkeus, int miinojenMaara){
-        for (int i = 0; i < korkeus; i++) {
-            for (int j = 0; j < leveys; j++) {
-             ruudut[i][j]= new Ruutu();
+    private int leveys;
+    private int korkeus;
+
+    public Kentta(int leveys, int korkeus, int miinojenMaara) {
+        this.leveys = leveys;
+        this.korkeus = korkeus;
+        this.ruudut = new Ruutu[leveys][korkeus];
+        for (int i = 0; i < leveys; i++) {
+            for (int j = 0; j < korkeus; j++) {
+                ruudut[i][j] = new Ruutu();
             }
         }
-        this.miinojenMaara=miinojenMaara;
+        this.miinojenMaara = miinojenMaara;
+        luoMiinat();
+        laskeViereisetMiinat();
     }
-    public Ruutu getRuutu(int x,int y){
+
+    public Ruutu getRuutu(int x, int y) {
         return this.ruudut[x][y];
+    }
+
+    private void luoMiinat() {
+        int m = this.miinojenMaara;
+        Random r = new Random();
+        while (m > 0) {
+            int i = r.nextInt(this.leveys);
+            int j = r.nextInt(this.korkeus);
+            Ruutu ruutu = ruudut[i][j];
+            if (!ruutu.getMiina()) {
+                ruutu.asetaMiina();
+                m--;
+            }
+        }
+    }
+
+    private void laskeViereisetMiinat() {
+        //toteuta
+    }
+
+    public void testausTulostus() {
+        for (int i = 0; i < leveys; i++) {
+            for (int j = 0; j < korkeus; j++) {
+                Ruutu ruutu = ruudut[i][j];
+                if (ruutu.getMiina()) {
+                    System.out.print("¤");
+                } else {
+                    System.out.print("-");
+                }
+            }
+            System.out.println("");
+        }
     }
 }

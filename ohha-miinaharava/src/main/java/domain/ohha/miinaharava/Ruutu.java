@@ -16,4 +16,24 @@ public class Ruutu {
     public void liputa(){
         onkoLippu=!onkoLippu;
     }
+    public void asetaMiina(){
+        onkoMiina=true;
+    }
+    public void avaa(){
+        onkoAvattu=true;
+    }
+    //viereisten miinojen lasku tullaan tekemään miinojen luonnin jälkeen luokkassa Kentta
+    public void viereistenMiinojenMaara(int i){
+        this.viereisetMiinat=i;
+    }
+    public boolean getMiina(){
+        return onkoMiina;
+    }
+    public boolean getLippu(){
+        return onkoLippu;
+    }
+    public boolean getAvattu(){
+        return onkoAvattu;
+    }
+    
 }
