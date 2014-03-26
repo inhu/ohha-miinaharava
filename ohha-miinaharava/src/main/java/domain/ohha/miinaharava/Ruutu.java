@@ -35,5 +35,7 @@ public class Ruutu {
     public boolean getAvattu(){
         return onkoAvattu;
     }
-    
+    public int getViereisetMiinat(){
+        return viereisetMiinat;
+    }
 }

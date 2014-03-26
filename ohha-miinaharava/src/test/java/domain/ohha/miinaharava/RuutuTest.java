@@ -1,28 +1,17 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package domain.ohha.miinaharava;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
 
-/**
- *
- * @author Antti
- */
+
 public class RuutuTest {
     
     Ruutu uusiRuutu;
     @Before
     public void setUp(){
         this.uusiRuutu = new Ruutu();
-    }
-    @Test
-    public void konstruktori(){
-        Ruutu ruutu = new Ruutu();
-        assertNotNull(ruutu);
     }
     @Test
     public void uudellaRuudullaEiLippua(){
