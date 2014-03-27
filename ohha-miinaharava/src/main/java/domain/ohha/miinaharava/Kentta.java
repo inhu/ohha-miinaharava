@@ -43,7 +43,6 @@ public class Kentta {
     }
 
     private void laskeViereisetMiinat() {
-        //toteuta
         for (int i = 0; i < ruudut.length; i++) {
             for (int j = 0; j < ruudut.length; j++) {
                 Ruutu ruutu = ruudut[i][j];
@@ -56,7 +55,9 @@ public class Kentta {
         int miinat = 0;
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {
-                if ((x == 0 && y == 0)) {
+                //tarkistetaan ettei ruutun omaa pommia lasketa
+                if ((i == 0 && j == 0)) {
+                //tarkistetaan että ruutu on kentän sisällä
                 } else if ((x+i)>-1 && (y+j)>-1  && (x+i)<this.leveys && (y+j)<this.korkeus){
                     Ruutu apu = ruudut[x+i][y+j];
                     if(apu.getMiina()){
@@ -82,6 +83,7 @@ public class Kentta {
             System.out.println("");
         }
     }
+    
     public void viereisetMiinatTulostus(){
                 for (int i = 0; i < leveys; i++) {
             for (int j = 0; j < korkeus; j++) {
@@ -89,6 +91,16 @@ public class Kentta {
                 if(ruutu.getMiina()){
                     System.out.print("¤");
                 } else
+                System.out.print(ruutu.getViereisetMiinat());
+            }
+            System.out.println("");
+        }
+    }
+    
+        public void viereisetMiinatTulostus2(){
+                for (int i = 0; i < leveys; i++) {
+            for (int j = 0; j < korkeus; j++) {
+                Ruutu ruutu = ruudut[i][j];
                 System.out.print(ruutu.getViereisetMiinat());
             }
             System.out.println("");
