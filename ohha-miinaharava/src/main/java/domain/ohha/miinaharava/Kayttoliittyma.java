@@ -5,12 +5,22 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
+/**
+ *
+ * @author Antti
+ */
 public class Kayttoliittyma implements Runnable{
     private JFrame frame;
     private Kentta kentta;
     private int leveys;
     private int korkeus;
     
+    /**
+     *
+     * @param kentta
+     * @param leveys
+     * @param korkeus
+     */
     public Kayttoliittyma(Kentta kentta, int leveys, int korkeus){
         this.kentta = kentta;
         this.leveys = leveys;

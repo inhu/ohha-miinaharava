@@ -3,8 +3,17 @@ package domain.ohha.miinaharava;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
+/**
+ *
+ * @author Antti
+ */
 public class Main {
 
+    /**
+     *
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         String leveysString, korkeusString, miinojenString;
 
@@ -42,6 +51,7 @@ public class Main {
         }
 
         Kentta kentta = new Kentta(leveys, korkeus, miinojenMaara);
+        
         kentta.testausTulostus();
         System.out.println("");
         kentta.viereisetMiinatTulostus();

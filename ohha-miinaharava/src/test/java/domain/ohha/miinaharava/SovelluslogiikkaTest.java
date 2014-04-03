@@ -5,6 +5,10 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
 
+/**
+ *
+ * @author Antti
+ */
 public class SovelluslogiikkaTest {
 
     Kentta satunnainen;
@@ -13,6 +17,9 @@ public class SovelluslogiikkaTest {
     Sovelluslogiikka taynnaLogiikka;
     Random r;
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
         this.satunnainen = new Kentta(20, 20, 30);
@@ -22,17 +29,26 @@ public class SovelluslogiikkaTest {
         this.r = new Random();
     }
 
+    /**
+     *
+     */
     @Test
     public void satunnaisenRuudunAvausTaydestaToimii() {
         assertEquals(this.taynnaLogiikka.avaaRuutu(r.nextInt(5), r.nextInt(5)), false);
     }
 
+    /**
+     *
+     */
     @Test
     public void satunnaisenRuudunAvausSatunnaisestaToimii() {
         int x  = r.nextInt(20);
         int y = r.nextInt(20);
         assertEquals(this.satunnaisLogiikka.avaaRuutu(x, y), !satunnainen.getRuutu(x, y).getMiina());
     }
+    /**
+     *
+     */
     @Test
     public void osaakoAvaaRuutuAvata(){
         this.satunnaisLogiikka.avaaRuutu(0, 0);

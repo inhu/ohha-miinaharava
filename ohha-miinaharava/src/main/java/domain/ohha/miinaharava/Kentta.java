@@ -3,6 +3,10 @@ package domain.ohha.miinaharava;
 import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import java.util.Random;
 
+/**
+ *
+ * @author Antti
+ */
 public class Kentta {
 
     private Ruutu[][] ruudut;
@@ -10,6 +14,12 @@ public class Kentta {
     private int leveys;
     private int korkeus;
 
+    /**
+     *
+     * @param leveys
+     * @param korkeus
+     * @param miinojenMaara
+     */
     public Kentta(int leveys, int korkeus, int miinojenMaara) {
         this.leveys = leveys;
         this.korkeus = korkeus;
@@ -24,6 +34,12 @@ public class Kentta {
         laskeViereisetMiinat();
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     * @return
+     */
     public Ruutu getRuutu(int x, int y) {
         return this.ruudut[x][y];
     }
@@ -70,6 +86,9 @@ public class Kentta {
         ruutu.viereistenMiinojenMaara(miinat);
     }
 
+    /**
+     *
+     */
     public void testausTulostus() {
         for (int i = 0; i < leveys; i++) {
             for (int j = 0; j < korkeus; j++) {
@@ -84,6 +103,9 @@ public class Kentta {
         }
     }
     
+    /**
+     *
+     */
     public void viereisetMiinatTulostus(){
                 for (int i = 0; i < leveys; i++) {
             for (int j = 0; j < korkeus; j++) {
@@ -97,7 +119,10 @@ public class Kentta {
         }
     }
     
-        public void viereisetMiinatTulostus2(){
+        /**
+     *
+     */
+    public void viereisetMiinatTulostus2(){
                 for (int i = 0; i < leveys; i++) {
             for (int j = 0; j < korkeus; j++) {
                 Ruutu ruutu = ruudut[i][j];
