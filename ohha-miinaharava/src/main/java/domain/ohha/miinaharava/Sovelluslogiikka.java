@@ -12,11 +12,9 @@ public class Sovelluslogiikka {
         this.kentta = kentta;
         this.jatkuuko=true;
         this.voititko=true;
-        
-        //aloita();
     }
 
-    private void aloita() {
+    public void aloita() {
         //x ja y avattavan ruudun koordinaatit jotka saadaa käyttöliittymältä(?) jossain vaiheessa jotenkin
         int x = 0;
         int y = 0;
