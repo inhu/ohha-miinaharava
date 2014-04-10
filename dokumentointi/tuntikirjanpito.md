@@ -6,5 +6,6 @@
 26.3. 2h sovelluslogiikkaan metodeja ja testejä  
 2.4. 2h käyttöliittymän toteutuksen suunnittelua 
 3.4 2h mainiin kyselyt haluaako käyttäjä asettaa mitat vai mennä suoraan peliin, käyttöliittymä luokan luonti  
-3.4 1h sekvenssikaaviot, javadoc ja pit  
+3.4 1h sekvenssikaaviot, javadoc ja pit   
+10.4 6h käyttöliittymä, sovelluslogiikka ja tapahtuman kuuntelija rupeavat näyttämään jo vähän oikeammilta. ruudun avaus sekvenssikaavio, javadoc ei suostu toimimaan, uusi pit  
 

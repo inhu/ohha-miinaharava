@@ -59,6 +59,7 @@ public class Main {
         kentta.viereisetMiinatTulostus2();
 
         Sovelluslogiikka sovelluslogiikka = new Sovelluslogiikka(kentta);
+        Kayttoliittyma kayttoliittyma = new Kayttoliittyma(kentta, leveys, korkeus, sovelluslogiikka);
 
         //sovelluslogiikka.aloita(); ?
     }

@@ -43,6 +43,12 @@ public class Kentta {
     public Ruutu getRuutu(int x, int y) {
         return this.ruudut[x][y];
     }
+    public int getLeveys(){
+        return this.leveys;
+    }
+    public int getKorkeus(){
+        return this.korkeus;
+    }
 
     private void luoMiinat() {
         int m = this.miinojenMaara;
