@@ -8,4 +8,5 @@
 3.4 2h mainiin kyselyt haluaako käyttäjä asettaa mitat vai mennä suoraan peliin, käyttöliittymä luokan luonti  
 3.4 1h sekvenssikaaviot, javadoc ja pit   
 10.4 6h käyttöliittymä, sovelluslogiikka ja tapahtuman kuuntelija rupeavat näyttämään jo vähän oikeammilta. ruudun avaus sekvenssikaavio, javadoc ei suostu toimimaan, uusi pit  
+20.4 1h ruudut päivittyy oikein  
 
