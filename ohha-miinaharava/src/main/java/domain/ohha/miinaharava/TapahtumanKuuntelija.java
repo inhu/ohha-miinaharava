@@ -58,6 +58,7 @@ public class TapahtumanKuuntelija implements MouseListener {
                 }
             }
         }
+        this.kali.paivita();
     }
 
     @Override

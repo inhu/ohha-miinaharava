@@ -30,9 +30,24 @@ public class Sovelluslogiikka {
         Ruutu ruutu = this.kentta.getRuutu(x, y);
         if (!ruutu.getAvattu()) {
             ruutu.avaa();
+            if (!ruutu.getMiina() && ruutu.getViereisetMiinat() == 0) {
+                avaaViereiset(x, y);
+            }
             return !ruutu.getMiina();
         }
         return true;
+    }
+
+    private void avaaViereiset(int x, int y) {
+        for (int i = -1; i < 2; i++) {
+            for (int j = -1; j < 2; j++) {
+                if ((i == 0 && j == 0)) {
+                    //tarkistetaan että ruutu on kentän sisällä
+                } else if ((x + i) > -1 && (y + j) > -1 && (x + i) < this.kentta.getLeveys() && (y + j) < this.kentta.getKorkeus()) {
+                    avaaRuutu(x+i, y+j);
+                }
+            }
+        }
     }
 
     /**
@@ -43,10 +58,8 @@ public class Sovelluslogiikka {
      */
     public boolean liputaRuutu(int x, int y) {
         this.kentta.getRuutu(x, y).liputa();
-        if (onkoKaikkiMiinatLiputettu()) {
-            return true;
-        }
-        return false;
+        
+        return onkoKaikkiMiinatLiputettu();
 
     }
 
@@ -55,7 +68,7 @@ public class Sovelluslogiikka {
             for (int j = 0; j < this.kentta.getKorkeus(); j++) {
                 Ruutu ruutu = kentta.getRuutu(i, j);
                 //käydään kaikki ruudut läpi ja onko jossakin miina ilman lippu tai lippu ilman miinaa, ja jos on niin palautetaan false
-                if ((ruutu.getMiina() && !ruutu.getLippu()) || (!ruutu.getMiina() && ruutu.getAvattu())) {
+                if ((ruutu.getMiina() && !ruutu.getLippu()) || (!ruutu.getMiina() && ruutu.getLippu() && !ruutu.getAvattu())) {
                     return false;
                 }
             }

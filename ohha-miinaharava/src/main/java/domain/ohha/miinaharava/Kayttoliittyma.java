@@ -1,5 +1,6 @@
 package domain.ohha.miinaharava;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.io.IOException;
 import javax.swing.JButton;
@@ -35,7 +36,7 @@ public class Kayttoliittyma extends JFrame {
         this.setLayout(new GridLayout(leveys, korkeus));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         luoNapit();
-        this.setSize(26 * leveys, 26 * korkeus);
+        this.setSize(50 * leveys, 50 * korkeus);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
@@ -52,6 +53,7 @@ public class Kayttoliittyma extends JFrame {
     }
 
     public void havisitPelin() throws IOException {
+        naytaMiinat();
         int i = JOptionPane.showConfirmDialog(null, "Hävisit pelin, haluatko aloittaa uuden pelin?", "Miinaharava", JOptionPane.OK_OPTION);
         if (i == 0) {
             String[] args = {};
@@ -65,6 +67,7 @@ public class Kayttoliittyma extends JFrame {
 
     public void voititPelin() throws IOException {
         //tämä on nyt tässä vaiheessa kopio pastaa mutta tulee muuttamaan tod.näk. myöhemmin
+        paivita();
         int i = JOptionPane.showConfirmDialog(null, "Voitit pelin, haluatko aloittaa uuden pelin?", "Miinaharava", JOptionPane.OK_OPTION);
         if (i == 0) {
             String[] args = {};
@@ -73,6 +76,35 @@ public class Kayttoliittyma extends JFrame {
         } else {
             System.exit(0);
 
+        }
+    }
+
+    public void paivita() {
+        for (int i = 0; i < this.leveys; i++) {
+            for (int j = 0; j < this.korkeus; j++) {
+                Ruutu ruutu = this.kentta.getRuutu(i, j);
+                if (ruutu.getAvattu()) {
+                    napit[i][j].setBackground(Color.white);
+                    napit[i][j].setText("" + ruutu.getViereisetMiinat());
+                } else if (ruutu.getLippu()) {
+                    napit[i][j].setBackground(Color.yellow);
+                } else {
+                    napit[i][j].setBackground(null);
+                }
+
+            }
+        }
+    }
+
+    private void naytaMiinat() {
+        for (int i = 0; i < this.leveys; i++) {
+            for (int j = 0; j < this.korkeus; j++) {
+                Ruutu ruutu = this.kentta.getRuutu(i, j);
+                if (ruutu.getMiina()) {
+                    napit[i][j].setBackground(Color.red);
+                    napit[i][j].setText("¤");
+                }
+            }
         }
     }
 }
