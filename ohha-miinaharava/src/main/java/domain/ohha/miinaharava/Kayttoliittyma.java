@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
+ * Pelin graafinen käyttoliittymä.
  *
  * @author Antti
  */
@@ -20,6 +21,7 @@ public class Kayttoliittyma extends JFrame {
     private Sovelluslogiikka logiikka;
 
     /**
+     * Kayttoliittyma luokan konstruktori.
      *
      * @param kentta
      * @param leveys
@@ -41,6 +43,9 @@ public class Kayttoliittyma extends JFrame {
         this.setVisible(true);
     }
 
+    /**
+     * Metodi luo JButton oliot ja antaa nille tapahtumankuuntelijan.
+     */
     private void luoNapit() {
         for (int i = 0; i < leveys; i++) {
             for (int j = 0; j < korkeus; j++) {
@@ -52,6 +57,10 @@ public class Kayttoliittyma extends JFrame {
         }
     }
 
+    /**
+     * Metodi ilmoittaa pelaajalla että peli on hävitty ja kysyy pelaataanko
+     * uudestaan.
+     */
     public void havisitPelin() throws IOException {
         naytaMiinat();
         int i = JOptionPane.showConfirmDialog(null, "Hävisit pelin, haluatko aloittaa uuden pelin?", "Miinaharava", JOptionPane.OK_OPTION);
@@ -65,6 +74,10 @@ public class Kayttoliittyma extends JFrame {
         }
     }
 
+    /**
+     * Metodi ilmoittaa pelaajalla että peli voitettiin ja kysyy pelataanko
+     * uudestaan.
+     */
     public void voititPelin() throws IOException {
         //tämä on nyt tässä vaiheessa kopio pastaa mutta tulee muuttamaan tod.näk. myöhemmin
         paivita();
@@ -79,6 +92,9 @@ public class Kayttoliittyma extends JFrame {
         }
     }
 
+    /**
+     * Metodi päivittää ruuduille oikeat värit ja numerot.
+     */
     public void paivita() {
         for (int i = 0; i < this.leveys; i++) {
             for (int j = 0; j < this.korkeus; j++) {
@@ -96,6 +112,9 @@ public class Kayttoliittyma extends JFrame {
         }
     }
 
+    /**
+     * Metodi asettaa kaikki miinat näkyviin.
+     */
     private void naytaMiinat() {
         for (int i = 0; i < this.leveys; i++) {
             for (int j = 0; j < this.korkeus; j++) {

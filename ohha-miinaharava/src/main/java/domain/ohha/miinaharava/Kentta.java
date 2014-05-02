@@ -4,17 +4,22 @@ import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import java.util.Random;
 
 /**
+ * Kenttä luokka luo ja säilyttää Ruutu olioita.
  *
  * @author Antti
  */
 public class Kentta {
 
+    /**
+     * Kaksiuloitteinen lista joka sisältää Ruutu oliot.
+     */
     private Ruutu[][] ruudut;
     private int miinojenMaara;
     private int leveys;
     private int korkeus;
 
     /**
+     * Kentta luokan konstruktori.
      *
      * @param leveys
      * @param korkeus
@@ -43,13 +48,18 @@ public class Kentta {
     public Ruutu getRuutu(int x, int y) {
         return this.ruudut[x][y];
     }
-    public int getLeveys(){
+
+    public int getLeveys() {
         return this.leveys;
     }
-    public int getKorkeus(){
+
+    public int getKorkeus() {
         return this.korkeus;
     }
 
+    /**
+     * Metodi arpoo ruuduille miinat.
+     */
     private void luoMiinat() {
         int m = this.miinojenMaara;
         Random r = new Random();
@@ -63,7 +73,9 @@ public class Kentta {
             }
         }
     }
-
+    /**
+     * Metodi kutsuu asetaViereiset-metodia kaikilla ruuduilla.
+     */
     private void laskeViereisetMiinat() {
         for (int i = 0; i < ruudut.length; i++) {
             for (int j = 0; j < ruudut.length; j++) {
@@ -73,16 +85,19 @@ public class Kentta {
         }
     }
 
+    /**
+     * Metodi laskee ruuduille niiden viereiset miinat.
+     */
     private void asetaViereiset(Ruutu ruutu, int x, int y) {
         int miinat = 0;
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {
                 //tarkistetaan ettei ruutun omaa pommia lasketa
                 if ((i == 0 && j == 0)) {
-                //tarkistetaan että ruutu on kentän sisällä
-                } else if ((x+i)>-1 && (y+j)>-1  && (x+i)<this.leveys && (y+j)<this.korkeus){
-                    Ruutu apu = ruudut[x+i][y+j];
-                    if(apu.getMiina()){
+                    //tarkistetaan että ruutu on kentän sisällä
+                } else if ((x + i) > -1 && (y + j) > -1 && (x + i) < this.leveys && (y + j) < this.korkeus) {
+                    Ruutu apu = ruudut[x + i][y + j];
+                    if (apu.getMiina()) {
                         miinat++;
                     }
                 }
@@ -108,28 +123,29 @@ public class Kentta {
             System.out.println("");
         }
     }
-    
+
     /**
      *
      */
-    public void viereisetMiinatTulostus(){
-                for (int i = 0; i < leveys; i++) {
+    public void viereisetMiinatTulostus() {
+        for (int i = 0; i < leveys; i++) {
             for (int j = 0; j < korkeus; j++) {
                 Ruutu ruutu = ruudut[i][j];
-                if(ruutu.getMiina()){
+                if (ruutu.getMiina()) {
                     System.out.print("¤");
-                } else
-                System.out.print(ruutu.getViereisetMiinat());
+                } else {
+                    System.out.print(ruutu.getViereisetMiinat());
+                }
             }
             System.out.println("");
         }
     }
-    
-        /**
+
+    /**
      *
      */
-    public void viereisetMiinatTulostus2(){
-                for (int i = 0; i < leveys; i++) {
+    public void viereisetMiinatTulostus2() {
+        for (int i = 0; i < leveys; i++) {
             for (int j = 0; j < korkeus; j++) {
                 Ruutu ruutu = ruudut[i][j];
                 System.out.print(ruutu.getViereisetMiinat());

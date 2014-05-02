@@ -4,7 +4,7 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Pelin Main luokka joka kysyy käyttäjältä halutun pelimuodon ja luo Kentta, Sovelluslogiikka ja Kayttoliittyma oliot.
  * @author Antti
  */
 public class Main {
@@ -52,15 +52,7 @@ public class Main {
 
         Kentta kentta = new Kentta(leveys, korkeus, miinojenMaara);
         
-        kentta.testausTulostus();
-        System.out.println("");
-        kentta.viereisetMiinatTulostus();
-        System.out.println("");
-        kentta.viereisetMiinatTulostus2();
-
         Sovelluslogiikka sovelluslogiikka = new Sovelluslogiikka(kentta);
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma(kentta, leveys, korkeus, sovelluslogiikka);
-
-        //sovelluslogiikka.aloita(); ?
     }
 }

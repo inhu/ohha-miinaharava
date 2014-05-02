@@ -3,7 +3,7 @@ package domain.ohha.miinaharava;
 
 
 /**
- *
+ * Ruutu luokka kuvaa Miinaharava-pelin yhden ruudun arvoja.
  * @author Antti
  */
 public class Ruutu {
@@ -12,7 +12,7 @@ public class Ruutu {
     private boolean onkoLippu;
     private int viereisetMiinat;
     /**
-     *
+     * Ruutu luokan konstruktori
      */
     public Ruutu(){
         this.onkoAvattu=false;
@@ -21,7 +21,7 @@ public class Ruutu {
         this.viereisetMiinat=0;
     }
     /**
-     *
+     * Metodi vaihtaa onkoLippu boolean arvon vastakkaiseksi.
      */
     public void liputa(){
         onkoLippu=!onkoLippu;

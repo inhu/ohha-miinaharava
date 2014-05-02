@@ -12,6 +12,8 @@ import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
 
 /**
+ * Tapahtumankuuntelija luokka joka ottaa käyttöliittymältä kordinaatteja ja
+ * kutsuu niiden perusteella sovelluslogiikan metodeita.
  *
  * @author Antti
  */
@@ -23,7 +25,7 @@ public class TapahtumanKuuntelija implements MouseListener {
     private Kayttoliittyma kali;
 
     /**
-     *
+     * Tapahtumankuuntelija luokan konstruktori.
      * @param logiikka
      * @param kali
      * @param i

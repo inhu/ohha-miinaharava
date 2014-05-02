@@ -11,6 +11,8 @@ public class Sovelluslogiikka {
     boolean voititko;
 
     /**
+     * Sovelluslogiikka luokka joka avaa ja liputtaa kentän ruutuja ja kertoo
+     * onko peli ohi.
      *
      * @param kentta
      */
@@ -21,9 +23,9 @@ public class Sovelluslogiikka {
     }
 
     /**
-     *
-     * @param x
-     * @param y
+     * Metodi avaa kentän ruudun ja palauttaa false jos osuttiin miinaan.
+     * @param x x-koordinaatti
+     * @param y y-koordinaatti
      * @return
      */
     public boolean avaaRuutu(int x, int y) {
@@ -37,6 +39,11 @@ public class Sovelluslogiikka {
         }
         return true;
     }
+    /**
+     * Metodi avaa annetun ruudun koordinaattien perusteella viereiset ruudut.
+     * @param x x-koordinaatti
+     * @param y y-koordinaatti
+     */
 
     private void avaaViereiset(int x, int y) {
         for (int i = -1; i < 2; i++) {
@@ -44,24 +51,28 @@ public class Sovelluslogiikka {
                 if ((i == 0 && j == 0)) {
                     //tarkistetaan että ruutu on kentän sisällä
                 } else if ((x + i) > -1 && (y + j) > -1 && (x + i) < this.kentta.getLeveys() && (y + j) < this.kentta.getKorkeus()) {
-                    avaaRuutu(x+i, y+j);
+                    avaaRuutu(x + i, y + j);
                 }
             }
         }
     }
 
     /**
-     *
+     * Metodi liputtaa ruudun.
      * @param x
      * @param y
      * @return
      */
     public boolean liputaRuutu(int x, int y) {
         this.kentta.getRuutu(x, y).liputa();
-        
+
         return onkoKaikkiMiinatLiputettu();
 
     }
+    /**
+     * Metodi tarkistaa onko kaikki miinat liputettu ja ettei turhia ruutuja ole liputettu.
+     * @return true jos kaikki miinat on liputettu oikein.
+     */
 
     private boolean onkoKaikkiMiinatLiputettu() {
         for (int i = 0; i < this.kentta.getLeveys(); i++) {
